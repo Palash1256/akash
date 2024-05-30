@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <style>
+        #gallery{
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+            /* justify-content: center; */
+        }
+        img{
+            width: 120px;
+            height:120px;
+        }
+    </style>
+</head>
+<body>
+    <div id="gallery"></div>
+    <script>
+        async function loadGallery(){
+            const res=await fetch("http://localhost:5555/gallery");
+            const data=await res.json();
+            //console.log(data);
+            data.forEach((image) => {
+                console.log(image);
+                const img=document.createElement("img");
+                img.src="http://localhost:5555/"+image;
+                console.log(img.src);
+                document.getElementById("gallery").append(img);
+            });
+        }
+        loadGallery();
+    </script>
+</body>
+</html>

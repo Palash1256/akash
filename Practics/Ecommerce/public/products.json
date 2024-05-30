@@ -1,0 +1,32 @@
+[
+    {
+        "Title": "Rajma",
+        "Category": "food",
+        "Price": 5.99
+    },
+    {
+        "Title": "Palang paneer",
+        "Category": "food",
+        "Price": 15.99
+    },
+    {
+        "Title":"volly",
+        "Category":"game",
+        "Price":500
+    },
+    {
+        "Title":"T-shirt",
+        "Category":"cloths",
+        "Price":300
+    },
+    {
+        "Title":"Huddi",
+        "Category":"cloths",
+        "Price":500
+    },
+    {
+        "Title":"Nikker",
+        "Category":"cloths",
+        "Price":120
+    }
+]

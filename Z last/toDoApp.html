@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .contaner{
+            display: flex;
+
+        }
+        .contaner div{
+            border: 2px solid green;
+            width: 50%;
+            padding: 5px;
+            margin: 2px;
+        }
+        .box{
+            display: flex;
+        }
+        .edit-icon {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+    </style>
+</head>
+<body>
+    <div class="contaner">
+            <div class="left">
+        <ul class="list"></ul>
+        </div>
+
+            <div class="right">
+        <textarea class="input">
+
+        </textarea>
+        </div>
+    </div>
+    <script>
+        const list=document.querySelector(".list");
+        const input=document.querySelector(".input");
+        input.addEventListener("keyup",(event)=>{
+            if(event.key==="Enter" && input.value!=''){
+                createList(input.value);
+                input.value="";
+            }
+        });
+        function createList(val){
+            const li=document.createElement("li");
+            li.innerHTML=`
+            <span>${val}</span>
+            <div class="box">
+                <span class="edit-icon">&#9998;</span>
+          <span class="delete-icon">&#10006;</span>
+             </div>
+            `
+            list.append(li);
+        }
+    </script>
+</body>
+</html> 

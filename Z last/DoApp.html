@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>To-Do App</title>
+  <style>
+
+    #app {
+      display: flex;
+     
+    }
+    
+
+    #left-pane {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 2px;
+      border: 2px solid black;
+            width: 50%;
+            padding: 5px;
+    }
+
+    #right-pane {
+      flex: 1;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin: 2px;
+      border: 2px solid black;
+            width: 50%;
+            padding: 5px;
+    }
+
+    #task-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .task {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 5px;
+      margin-bottom: 5px;
+      background-color: #f0f0f0;
+    }
+
+    .completed {
+      text-decoration: line-through;
+    }
+
+    .actions {
+      display: flex;
+    }
+
+    .edit-icon {
+      margin-right: 5px;
+      cursor: pointer;
+    }
+
+    .delete-icon {
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+
+  <div id="app">
+    <div id="left-pane">
+      <ul id="task-list"></ul>
+    </div>
+    <div id="right-pane">
+      <textarea id="task-input" placeholder="Type here and press Enter"></textarea>
+    </div>
+  </div>
+
+  <script>
+    const taskList = document.getElementById('task-list');
+    const taskInput = document.getElementById('task-input');
+
+    taskInput.addEventListener('keyup', function(event) {
+      if (event.key === 'Enter' && taskInput.value.trim() !== '') {
+        addTask(taskInput.value.trim());
+        taskInput.value = '';
+      } 
+    });
+
+    function addTask(taskName) {  
+      const li = document.createElement('li');
+      li.className = 'task';
+      li.innerHTML = `
+        <span>${taskName}</span>
+        <div class="actions">
+          <span class="edit-icon">&#9998;</span>
+          <span class="delete-icon">&#10006;</span>
+        </div>
+      `;
+      taskList.appendChild(li);
+    }
+
+    taskList.addEventListener('click', function(event) {
+      const target = event.target;
+      if (target.classList.contains('edit-icon')) {
+        const newName = prompt('Enter new task name:', target.parentElement.previousElementSibling.innerText);
+        if (newName !== null) {
+          target.parentElement.previousElementSibling.innerText = newName;
+        }
+      } else if (target.classList.contains('delete-icon')) {
+        target.parentElement.parentElement.remove();
+      } else if (target.tagName === 'SPAN') {
+        target.classList.toggle('completed');
+      }
+    });
+  </script>
+
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+    <input type="text" id="username" placeholder="enter your username"/>
+    </div>
+    <div>
+        <input type="email" id="email" placeholder="enter your username"/>
+    </div>
+
+    <div>
+        <input type="password" id="password" placeholder="enter your username"/>
+    </div>
+    <div>
+    <button id="btn">Submit</button>
+    </div>
+
+    <script>
+         document.querySelector('#btn').addEventListener("click",async(e)=>{
+            var dataObject={
+                name:document.querySelector("#username").value,
+                email:document.querySelector("#email").value,
+                pass:document.querySelector("#password").value
+            }
+            console.log(dataObject);
+            const response=await fetch("http://localhost:8080/user",{
+                method:"POST",
+                headers:{
+                    "Content-type":"application/json"
+                },
+                body:JSON.stringify(dataObject)
+            });
+         })
+         
+    </script>
+</body>
+</html>

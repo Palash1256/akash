@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border:2px solid blue;
+            width: 900px;
+        }
+        th{
+            border: 2px solid rgb(2, 248, 51);
+        }
+        td{
+            border: 2px solid red;
+            text-align: center;
+        }
+        table tbody tr td img{
+            height: 100px;
+            width:100px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Hello</h1>
+    <table>
+<thead>
+    <th>User</th>
+    <th>Image</th>
+</thead>
+<tbody>
+    <%response.forEach(ele=>{%>
+        <tr>
+            <td><%=ele.username%></td>
+            <td><img src="<%=imagePath+ele.image%>"/></td>
+        </tr>
+   <% })%>
+</tbody>
+   </table>
+
+
+
+   <h3>Finish</h3>
+</body>
+</html>

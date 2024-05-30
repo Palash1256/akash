@@ -1,0 +1,96 @@
+* {
+  box-sizing: border-box;
+}
+body {
+  background-color: aquamarine;
+}
+.container {
+  padding: 10px;
+  background-color: white;
+  max-width: fit-content;
+  margin: 50px auto;
+}
+.btn {
+  border: none;
+  padding: 5px 15px;
+  font-size: 15px;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.btn-add {
+  background-color: rgb(49, 207, 75);
+  color: white;
+}
+/* .addContainer {
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+} */
+.addContainer form {
+  background-color: white;
+  width: 420px;
+  display: flex;
+  flex-direction: column;
+  padding: 50px 30px;
+  box-shadow: 5px 5px 10px rgb(0, 0, 0, 1);
+  border-radius: 5px;
+}
+
+.addContainer form input {
+  font-size: 18px;
+  padding: 3px;
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border: 2px solid green;
+  border-radius: 5px;
+}
+.addContainer form label {
+  font-size: 20px;
+}
+
+.addContainer form button {
+  background-color: blue;
+  font-weight: 550px;
+  color: white;
+  margin-top: 10px;
+}
+.addContainer form .close-btn {
+  margin-left: auto;
+  font-size: 20px;
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.tableContainer {
+  margin-top: 50px;
+  padding: 5px;
+  border: 1px solid #fa5dff;
+  border-radius: 10px;
+}
+
+.tableContainer table thead tr th,
+.tableContainer table tbody tr td {
+  min-width: 200px;
+  text-align: center;
+  border-bottom: 1px solid rgb(0, 0, 0, 0.1);
+}
+.btn-delete{
+  border: none;
+  background: none;
+  margin-left: 10px;
+}
+.btn-edit{
+  border: none;
+  background: none;
+  margin-right: 10px;
+  cursor: pointer;
+}
